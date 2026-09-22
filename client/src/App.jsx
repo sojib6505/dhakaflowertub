@@ -1,14 +1,17 @@
 import { useEffect, useMemo, useState } from "react";
 import {
   ArrowUpRight,
+  ChevronLeft,
+  ChevronRight,
   Menu,
   MessageCircle,
   MoveRight,
+  Play,
   Search,
   X,
 } from "lucide-react";
 import ProductDetailsModal from "./components/ProductDetailsModal";
-import { API_URL } from "./config/api";
+import { API_URL, BUSINESS_VIDEO, CORPORATE_IMAGES } from "./config/api";
 import { getWhatsAppLink } from "./utils/whatsapp";
 import "./App.css";
 
@@ -27,6 +30,9 @@ function App() {
   const [error, setError] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [activeCorporateImage, setActiveCorporateImage] = useState(0);
+  const [autoPlayCorporateImages, setAutoPlayCorporateImages] = useState(true);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 
   useEffect(() => {
     const loadCatalogue = async () => {
@@ -70,6 +76,31 @@ function App() {
 
   const featuredProduct =
     products.find((product) => product.isFeatured) || products[0];
+
+  useEffect(() => {
+    if (!autoPlayCorporateImages) return undefined;
+
+    const sliderInterval = window.setInterval(() => {
+      setActiveCorporateImage((currentIndex) => {
+        const nextIndex = (currentIndex + 1) % CORPORATE_IMAGES.length;
+        return nextIndex;
+      });
+    }, 5000);
+
+    return () => window.clearInterval(sliderInterval);
+  }, [autoPlayCorporateImages]);
+
+  const currentCorporateImage = CORPORATE_IMAGES[activeCorporateImage];
+
+  const moveCorporateImage = (direction) => {
+    setAutoPlayCorporateImages(false);
+    setActiveCorporateImage((currentIndex) => {
+      const nextIndex =
+        (currentIndex + direction + CORPORATE_IMAGES.length) %
+        CORPORATE_IMAGES.length;
+      return nextIndex;
+    });
+  };
 
   return (
     <div className="site-shell">
@@ -264,6 +295,119 @@ function App() {
           >
             <ArrowUpRight size={22} />
           </a>
+        </section>
+
+        <section
+          className="corporate-section"
+          aria-labelledby="corporate-corner-title"
+          onMouseEnter={() => setAutoPlayCorporateImages(false)}
+          onMouseLeave={() => setAutoPlayCorporateImages(true)}
+        >
+          <div className="section-heading corporate-heading">
+            <div>
+              <p className="eyebrow">Corporate Corner</p>
+              <h2 id="corporate-corner-title">
+                Built for Business. Designed for Growth.
+              </h2>
+            </div>
+            <p>
+              A visual look into our corporate presence, people, products, and
+              the environment behind our business.
+            </p>
+          </div>
+
+          <div className="corporate-slider" aria-label="Corporate image slider">
+            <div className="corporate-slider-frame">
+              <img
+                key={currentCorporateImage.src}
+                src={currentCorporateImage.src}
+                alt={currentCorporateImage.alt}
+                className="corporate-slide-image"
+              />
+            </div>
+
+            <div className="corporate-slider-controls">
+              <button
+                type="button"
+                className="corporate-slider-nav"
+                aria-label="Previous corporate image"
+                onClick={() => moveCorporateImage(-1)}
+              >
+                <ChevronLeft size={18} />
+              </button>
+
+              <div className="corporate-slider-dots" aria-label="Select image slide">
+                {CORPORATE_IMAGES.map((image, index) => (
+                  <button
+                    key={`${image.src}-${index}`}
+                    type="button"
+                    className={
+                      activeCorporateImage === index
+                        ? "corporate-slider-dot is-active"
+                        : "corporate-slider-dot"
+                    }
+                    aria-label={`View corporate image ${index + 1}`}
+                    onClick={() => {
+                      setAutoPlayCorporateImages(false);
+                      setActiveCorporateImage(index);
+                    }}
+                  />
+                ))}
+              </div>
+
+              <button
+                type="button"
+                className="corporate-slider-nav"
+                aria-label="Next corporate image"
+                onClick={() => moveCorporateImage(1)}
+              >
+                <ChevronRight size={18} />
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section className="business-video-section" aria-labelledby="business-video-title">
+          <div className="section-heading business-video-heading">
+            <div>
+              <p className="eyebrow">Our Business</p>
+              <h2 id="business-video-title">Get to Know the Business Behind the Products</h2>
+            </div>
+            <p>
+              Discover our story, capabilities, products, and the people behind
+              the business.
+            </p>
+          </div>
+
+          <div className="video-shell">
+            {isVideoPlaying ? (
+              <video
+                className="business-video"
+                controls
+                playsInline
+                preload="metadata"
+                poster={BUSINESS_VIDEO.poster}
+                src={BUSINESS_VIDEO.url}
+              >
+                Your browser does not support the video tag.
+              </video>
+            ) : (
+              <button
+                type="button"
+                className="video-poster"
+                onClick={() => setIsVideoPlaying(true)}
+                aria-label="Play company video"
+              >
+                <img src={BUSINESS_VIDEO.poster} alt="Business video preview" />
+                <span className="video-overlay" aria-hidden="true">
+                  <span className="video-play-button">
+                    <Play size={18} />
+                  </span>
+                  <span className="video-label">Watch the business film</span>
+                </span>
+              </button>
+            )}
+          </div>
         </section>
 
         <section className="contact-section" id="contact">
