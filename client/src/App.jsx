@@ -156,7 +156,7 @@ function App() {
               Explore the collection <MoveRight size={17} />
             </a>
           </div>
-          <div className=" ml-10 mt-2">
+          <div className=" mt-2">
             <img
               src={featuredProduct?.images?.[0]?.url}
               alt={
