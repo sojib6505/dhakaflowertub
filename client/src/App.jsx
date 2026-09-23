@@ -257,13 +257,13 @@ function App() {
                 <div className="product-info min-w-0">
                   <div>
                     <p className="product-category">{product.category}</p>
-                    <h3 className="break-words max-[800px]:text-[18px] max-[800px]:leading-[1.15]">{product.name}</h3>
+                    <h3 className="break-words max-[800px]:text-[16px] max-[800px]:leading-[1.15]">{product.name}</h3>
                   </div>
                   <p className="product-price break-words max-[800px]:text-[11px]">{formatPrice(product)}</p>
                 </div>
-                <p className="product-description break-words max-[800px]:text-[11px] max-[800px]:leading-[1.5]">
+                {/* <p className="product-description break-words max-[800px]:text-[11px] max-[800px]:leading-[1.5]">
                   {product.shortDescription}
-                </p>
+                </p> */}
                 <div className="product-actions max-[800px]:!flex-col max-[800px]:!gap-2">
                   <button
                     className="view-details-button max-[800px]:!w-full max-[800px]:!flex-none max-[800px]:!px-2 max-[800px]:!text-[10px]"
