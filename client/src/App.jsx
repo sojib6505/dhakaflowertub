@@ -142,8 +142,8 @@ function App() {
       </header>
 
       <main id="top">
-        <section className="hero-section">
-          <div className="hero-copy">
+        <section className="hero-section ">
+          <div className="mt-1 md:mt-10 ml-10">
             <p className="eyebrow">Cultivated forms for considered spaces</p>
             <h1>
               Bring a little <em>earth</em> home.
@@ -156,7 +156,7 @@ function App() {
               Explore the collection <MoveRight size={17} />
             </a>
           </div>
-          <div className="">
+          <div className=" ml-10 mt-2">
             <img
               src={featuredProduct?.images?.[0]?.url}
               alt={
