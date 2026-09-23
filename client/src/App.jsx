@@ -156,7 +156,7 @@ function App() {
               Explore the collection <MoveRight size={17} />
             </a>
           </div>
-          <div className="hero-image-wrap">
+          <div className="">
             <img
               src={featuredProduct?.images?.[0]?.url}
               alt={
@@ -164,16 +164,18 @@ function App() {
                 "A sculptural flower tub with greenery"
               }
             />
-            <div className="hero-note">
+            {/* <div className="hero-note">
               <span>01</span>
               <span>
                 Designed in Dhaka
                 <br />
                 made to last
               </span>
-            </div>
+            </div> */}
           </div>
         </section>
+
+
         <section className="collection-section" id="collection">
           <div className="section-heading">
             <div>
