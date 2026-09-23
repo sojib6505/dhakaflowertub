@@ -238,13 +238,13 @@ function App() {
               No pieces match that search yet.
             </p>
           )}
-          <div className="product-grid !grid-cols-3">
+          <div className="product-grid !grid-cols-3 max-[800px]:!grid-cols-2 max-[480px]:!grid-cols-2">
             {productsToRender.map((product, index) => (
               <article
-                className="product-card"
+                className="product-card min-w-0"
                 key={product._id || product.slug}
               >
-                <div className="product-image">
+                <div className="product-image max-[800px]:!h-auto max-[800px]:!aspect-[4/5]">
                   <img
                     src={product.images?.[0]?.url}
                     alt={product.images?.[0]?.alt || product.name}
@@ -254,26 +254,26 @@ function App() {
                     <span className="product-badge">{product.badge}</span>
                   )}
                 </div>
-                <div className="product-info">
+                <div className="product-info min-w-0">
                   <div>
                     <p className="product-category">{product.category}</p>
-                    <h3>{product.name}</h3>
+                    <h3 className="break-words max-[800px]:text-[18px] max-[800px]:leading-[1.15]">{product.name}</h3>
                   </div>
-                  <p className="product-price">{formatPrice(product)}</p>
+                  <p className="product-price break-words max-[800px]:text-[11px]">{formatPrice(product)}</p>
                 </div>
-                <p className="product-description">
+                <p className="product-description break-words max-[800px]:text-[11px] max-[800px]:leading-[1.5]">
                   {product.shortDescription}
                 </p>
-                <div className="product-actions">
+                <div className="product-actions max-[800px]:!flex-col max-[800px]:!gap-2">
                   <button
-                    className="view-details-button"
+                    className="view-details-button max-[800px]:!w-full max-[800px]:!flex-none max-[800px]:!px-2 max-[800px]:!text-[10px]"
                     type="button"
                     onClick={() => setSelectedProduct(product)}
                   >
                     View details <ArrowUpRight size={15} />
                   </button>
                   <a
-                    className="product-contact-button"
+                    className="product-contact-button max-[800px]:!w-full max-[800px]:!flex-none max-[800px]:!px-2 max-[800px]:!text-[10px]"
                     href={getWhatsAppLink(product)}
                     target="_blank"
                     rel="noreferrer"
