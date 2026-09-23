@@ -272,7 +272,7 @@ h3 { font-family: 'Playfair Display', serif; font-size: 21px; font-weight: 500; 
 	.header-cta { display: none; }
 	.menu-button { display: block; }
 	.hero-section { display: flex; flex-direction: column; margin-top: 0; padding: 0; }
-	.hero-copy { padding: 80px 8vw 62px; }
+	/* .hero-copy { padding: 80px 8vw 62px; } */
 	h1 { font-size: clamp(52px, 15vw, 78px); }
 	/* .hero-image-wrap { min-height: 440px; } */
 	.intro-strip, .collection-section, .corporate-section, .business-video-section { margin-left: 8vw; margin-right: 8vw; }

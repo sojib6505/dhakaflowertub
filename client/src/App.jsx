@@ -143,7 +143,7 @@ function App() {
 
       <main id="top">
         <section className="hero-section ">
-          <div className="mt-1 md:mt-10 ml-10">
+          <div className="mt-1 md:mt-10 ml-5">
             <p className="eyebrow">Cultivated forms for considered spaces</p>
             <h1>
               Bring a little <em>earth</em> home.
@@ -176,7 +176,7 @@ function App() {
         </section>
 
 
-        <section className="collection-section" id="collection">
+        <section className="collection-section mt-0" id="collection">
           <div className="section-heading">
             <div>
               <p className="eyebrow">The current edit</p>
