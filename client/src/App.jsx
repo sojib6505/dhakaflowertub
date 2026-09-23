@@ -31,6 +31,7 @@ function App() {
   const [error, setError] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [isProductsExpanded, setIsProductsExpanded] = useState(false);
   const [activeCorporateImage, setActiveCorporateImage] = useState(0);
   const [autoPlayCorporateImages, setAutoPlayCorporateImages] = useState(true);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
@@ -74,6 +75,10 @@ function App() {
       );
     });
   }, [activeCategory, products, search]);
+
+  const productsToRender = isProductsExpanded
+    ? visibleProducts
+    : visibleProducts.slice(0, 6);
 
   const featuredProduct =
     products.find((product) => product.isFeatured) || products[0];
@@ -233,8 +238,8 @@ function App() {
               No pieces match that search yet.
             </p>
           )}
-          <div className="product-grid">
-            {visibleProducts.map((product, index) => (
+          <div className="product-grid !grid-cols-3">
+            {productsToRender.map((product, index) => (
               <article
                 className="product-card"
                 key={product._id || product.slug}
@@ -279,6 +284,17 @@ function App() {
               </article>
             ))}
           </div>
+          {visibleProducts.length > 6 && (
+            <div className="mt-12 flex justify-center">
+              <button
+                className="rounded-full border border-(--green) px-5 py-3 text-xs text-(--green) transition hover:bg-(--green) hover:text-white"
+                type="button"
+                onClick={() => setIsProductsExpanded((expanded) => !expanded)}
+              >
+                {isProductsExpanded ? "See Less" : "See More"}
+              </button>
+            </div>
+          )}
         </section>
         <section className="intro-strip" id="story">
           <p className="section-label">The Dhaka Flower Tub standard</p>
