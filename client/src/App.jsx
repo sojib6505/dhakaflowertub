@@ -14,6 +14,7 @@ import ProductDetailsModal from "./components/ProductDetailsModal";
 import { API_URL, BUSINESS_VIDEO, CORPORATE_IMAGES } from "./config/api";
 import { getWhatsAppLink } from "./utils/whatsapp";
 import "./App.css";
+import Logo from "./components/Logo";
 
 const formatPrice = (product) => {
   if (product.priceDisplay) return product.priceDisplay;
@@ -105,9 +106,8 @@ function App() {
   return (
     <div className="site-shell">
       <header className="site-header">
-        <a className="wordmark" href="#top" aria-label="Dhaka Flower Tub home">
-          <span className="wordmark-mark">d</span>
-          <span>Dhaka Flower Tub</span>
+        <a href="#top" aria-label="Dhaka Flower Tub home">
+          <Logo />   
         </a>
         <nav
           className={menuOpen ? "main-nav is-open" : "main-nav"}
@@ -174,8 +174,7 @@ function App() {
             </div>
           </div>
         </section>
-         
-           <section className="collection-section" id="collection">
+        <section className="collection-section" id="collection">
           <div className="section-heading">
             <div>
               <p className="eyebrow">The current edit</p>
@@ -279,7 +278,6 @@ function App() {
             ))}
           </div>
         </section>
-
         <section className="intro-strip" id="story">
           <p className="section-label">The Dhaka Flower Tub standard</p>
           <p className="intro-statement">
@@ -295,6 +293,56 @@ function App() {
           >
             <ArrowUpRight size={22} />
           </a>
+        </section>
+
+        <section
+          className="mx-auto max-w-290 px-[8vw] pb-20 md:px-0 md:pb-30"
+          aria-labelledby="business-video-title"
+        >
+          <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-[minmax(0,1fr)_minmax(320px,0.85fr)] md:gap-16 lg:gap-24">
+            {/*  LEFT  — CONTENT */}
+            <div className="flex flex-col md:pb-8">
+              <p className="mb-5 text-[10px] font-semibold uppercase tracking-[0.16em] text-(--green)">
+                Our Business
+              </p>
+
+              <h2
+                id="business-video-title"
+                className="max-w-140 font-serif text-[clamp(42px,5vw,67px)] font-medium leading-none tracking-tighter"
+              >
+                Get to Know the Business Behind the Products
+              </h2>
+
+              <p className="mt-6 max-w-[320px] text-[13px] leading-[1.7] text-(--muted)">
+                Discover our story, capabilities, products, and the people
+                behind the business.
+              </p>
+
+            </div>
+
+            {/* RIGHT— VIDEO */}
+            <div className="w-full">
+              <div className="w-full overflow-hidden rounded-[20px] bg-black md:rounded-3xl">
+                <video
+                  className="block aspect-9/12 h-full w-full object-cover md:aspect-4/5"
+                  controls
+                  playsInline
+                  preload="metadata"
+                  src={BUSINESS_VIDEO.url}
+                >
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+
+              {/* <div className="mt-4 flex items-center gap-5 text-[10px] uppercase tracking-[0.12em] text-(--muted)">
+                <span className="font-serif text-2xl tracking-normal text-(--green)">
+                  01
+                </span>
+
+                <span>Business Film</span>
+              </div> */}
+            </div>
+          </div>
         </section>
 
         <section
@@ -336,7 +384,10 @@ function App() {
                 <ChevronLeft size={18} />
               </button>
 
-              <div className="corporate-slider-dots" aria-label="Select image slide">
+              <div
+                className="corporate-slider-dots"
+                aria-label="Select image slide"
+              >
                 {CORPORATE_IMAGES.map((image, index) => (
                   <button
                     key={`${image.src}-${index}`}
@@ -366,8 +417,7 @@ function App() {
             </div>
           </div>
         </section>
-
-        <section className="business-video-section" aria-labelledby="business-video-title">
+        {/* <section className="business-video-section" aria-labelledby="business-video-title">
           <div className="section-heading business-video-heading">
             <div>
               <p className="eyebrow">Our Business</p>
@@ -408,7 +458,7 @@ function App() {
               </button>
             )}
           </div>
-        </section>
+        </section> */}
 
         <section className="contact-section" id="contact">
           <div>

@@ -2,7 +2,7 @@ import img1 from '../assets/images/banner1.jpeg'
 import img2 from '../assets/images/banner2.jpeg'
 import img4 from '../assets/images/banner4.jpeg'
 import img5 from '../assets/images/banner5.jpeg'
-import vedio1 from '../assets/videos/vedio1.mp4'
+import vedio1 from '../assets/video/video1.mp4'
 export const API_URL = import.meta.env.VITE_API_URL || 'https://dhakaflowertub.onrender.com/api'
 
 export const CORPORATE_IMAGES = [
@@ -38,6 +38,4 @@ export const CORPORATE_IMAGES = [
 
 export const BUSINESS_VIDEO = {
   url: vedio1,
-//   poster:
-//     'https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1600&q=80',
 };

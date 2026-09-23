@@ -73,7 +73,26 @@ h3 { font-family: 'Playfair Display', serif; font-size: 21px; font-weight: 500; 
 .product-contact-button:hover { background: #286b50; border-color: #286b50; }
 .catalogue-message { color: var(--muted); font-size: 13px; padding: 30px 0; }
 .error-message { color: #9e5547; }
-.corporate-section, .business-video-section { margin: 0 auto; max-width: 1160px; padding: 0 0 120px; }
+.corporate-section, .business-video-section { 
+  margin: 0 auto; 
+  max-width: 1160px; 
+  padding: 0 0 120px; 
+}
+
+/* Business video desktop layout */
+.business-video-layout {
+  align-items: center;
+  display: grid;
+  gap: clamp(50px, 7vw, 100px);
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+}
+
+.business-video-visual {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
 .corporate-heading, .business-video-heading { margin-bottom: 46px; }
 .corporate-slider {
   max-width: 100%;
@@ -137,13 +156,26 @@ h3 { font-family: 'Playfair Display', serif; font-size: 21px; font-weight: 500; 
   background: var(--green);
   transform: scale(1.15);
 }
+
 .video-shell {
   background: #edf0ea;
   border: 1px solid rgba(23, 77, 57, 0.08);
   border-radius: 24px;
   overflow: hidden;
   position: relative;
+
+  width: 100%;
+  aspect-ratio: 4 / 5;
 }
+
+.business-video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #dfe4dc;
+}
+
 .video-poster {
   background: transparent;
   border: 0;
