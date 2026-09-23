@@ -176,7 +176,7 @@ function App() {
         </section>
 
 
-        <section className="collection-section mt-0" id="collection">
+        <section className="collection-section" id="collection">
           <div className="section-heading">
             <div>
               <p className="eyebrow">The current edit</p>

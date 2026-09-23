@@ -42,7 +42,7 @@ h1 em { color: var(--green); font-weight: 500; }
 .intro-statement { font-family: 'Playfair Display', serif; font-size: clamp(28px, 3vw, 43px); letter-spacing: -.03em; line-height: 1.16; margin: 0; max-width: 750px; }
 .circle-link { align-items: center; background: var(--lime); border-radius: 50%; display: flex; height: 51px; justify-content: center; transition: transform .2s; width: 51px; }
 .circle-link:hover { transform: rotate(45deg); }
-.collection-section { margin: 0 auto; max-width: 1160px; padding: 128px 0 145px; }
+.collection-section { margin: 0 auto; max-width: 1160px; padding: 0 0 145px; }
 .section-heading { align-items: end; display: flex; justify-content: space-between; margin-bottom: 65px; }
 h2 { font-family: 'Playfair Display', serif; font-size: clamp(45px, 5vw, 67px); font-weight: 500; letter-spacing: -.05em; line-height: 1; margin: 0; }
 .section-heading > p { color: var(--muted); font-size: 13px; line-height: 1.7; margin: 0 0 3px; max-width: 250px; }
@@ -278,7 +278,6 @@ h3 { font-family: 'Playfair Display', serif; font-size: 21px; font-weight: 500; 
 	.intro-strip, .collection-section, .corporate-section, .business-video-section { margin-left: 8vw; margin-right: 8vw; }
 	.intro-strip { grid-template-columns: 1fr 45px; gap: 20px; padding: 55px 0 60px; }
 	.intro-strip .section-label { grid-column: 1 / -1; }
-	.collection-section { padding: 88px 0 95px; }
 	.section-heading { align-items: start; flex-direction: column; gap: 25px; margin-bottom: 45px; }
 	.catalogue-controls { align-items: flex-start; flex-direction: column; gap: 18px; }
 	.category-tabs { gap: 13px 18px; }
