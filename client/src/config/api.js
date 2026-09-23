@@ -1,20 +1,24 @@
+import img1 from '../assets/images/banner1.jpeg'
+import img2 from '../assets/images/banner2.jpeg'
+import img4 from '../assets/images/banner4.jpeg'
+import img5 from '../assets/images/banner5.jpeg'
 export const API_URL = import.meta.env.VITE_API_URL || 'https://dhakaflowertub.onrender.com/api'
 
 export const CORPORATE_IMAGES = [
   {
-    src: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1200&q=80',
+    src: img1,
     alt: 'Dhaka Flower Tub team in a bright corporate workspace',
   },
   {
-    src: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80',
+    src: img2,
     alt: 'Meeting and collaboration with the business team',
   },
   {
-    src: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1000&q=80',
+    src: img4,
     alt: 'Corporate professionals in a modern office environment',
   },
   {
-    src: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=900&q=80',
+    src: img5,
     alt: 'Product display and presentation in a branded workspace',
   },
   {
